@@ -2,8 +2,6 @@ package com.Evaluacion2.streams.Exercise3_streams;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class ConsultasAlumnos_enunciado {
     List<Alumno> listaAlumnos = new ArrayList<>();
@@ -31,62 +29,55 @@ public class ConsultasAlumnos_enunciado {
 
     private void procesarStreams() {
         System.out.println("*** Lista de Alumnos ***");
-        listaAlumnos.forEach(alumno -> System.out.println(alumno.getNombre() + " " + alumno.getApellidos()));
+        listaAlumnos.forEach(System.out::println);
 
         System.out.println("\n*** Alumnos cuyo apellido empiezan con el caracter L u G ***");
-        listaAlumnos.stream().filter(alumno ->  alumno.getApellidos()
-                                                      .startsWith("L") ||
-                                                alumno.getApellidos()
-                                                      .startsWith("G"))
-                             .forEach(alumno -> System.out.println(alumno.getNombre()
-                                                                    + " "
-                                                                    + alumno.getApellidos()));
+        listaAlumnos.stream().filter(alumno ->  alumno.getApellidos().startsWith("L") ||
+                                                alumno.getApellidos().startsWith("G"))
+                             .forEach(System.out::println);
 
         System.out.println("\n**** Número de Alumnos ***");
+        //En este ejercicio es obligatorio usar .count(), pero es mejor listaAlumnos.size().
         long count = listaAlumnos.stream().count();
         System.out.println(count);
 
         System.out.println("\n**** Alumnos con nota mayor a 9 y que sean del curso PHP ***");
         listaAlumnos.stream().filter(alumno -> alumno.getNota() > 9)
                              .filter(alumno -> alumno.getNombreCurso().equals("PHP"))
-                             .forEach(alumno -> System.out.println(alumno.getNombre()));
+                             .forEach(System.out::println);
 
         System.out.println("\n**** Imprimir los 2 primeros Alumnos de la lista ***");
-        listaAlumnos.stream().limit(2)
-                             .forEach(alumno -> System.out.println(alumno.getNombre()));
+        listaAlumnos.stream().limit(2).forEach(System.out::println);
 
         System.out.println("\n**** Imprimir el alumno con menor edad ***");
         listaAlumnos.stream()
                     .filter(alumno -> alumno.getEdad() == listaAlumnos.stream()
                                                                       .mapToInt(Alumno::getEdad)
                                                                       .min()
-                                                                      .getAsInt())
-                    .forEach(alumno -> System.out.println(alumno.getNombre()));
+                                                                      .orElse(-1))
+                    .forEach(System.out::println);
 
         System.out.println("\n**** Imprimir el alumno con mayor edad ***");
         listaAlumnos.stream()
                     .filter(alumno -> alumno.getEdad() == listaAlumnos.stream()
                                                                       .mapToInt(Alumno::getEdad)
                                                                       .max()
-                                                                      .getAsInt())
-                    .forEach(alumno -> System.out.println(alumno.getNombre()));
-
+                                                                      .orElse(-1))
+                    .forEach(System.out::println);
         System.out.println("\n**** Encontrar el decimocuarto Alumno***");
+        int id = 14;
         listaAlumnos.stream()
-                    .filter(alumno -> alumno.getId() == 14)
-                    .forEach(alumno -> System.out.println(alumno.getNombre()));
+                    .filter(alumno -> alumno.getId() == id)
+                    .forEach(System.out::println);
 
         System.out.println("\n**** Alumnos que tienen un curso en el que el nombre contienen la A ***");
         listaAlumnos.stream()
                     .filter(alumno -> alumno.getNombreCurso().contains("a"))
-                    .forEach(alumno -> System.out.println(alumno.getNombre() + " " + alumno.getNombreCurso()));
+                    .forEach(System.out::println);
 
         System.out.println("\n**** Alumnos en que la longitud de su nombre es mayor a 10 caracteres ***");
         listaAlumnos.stream()
                     .filter(alumno -> alumno.getNombre().length() > 10)
-                    .forEach(alumno -> System.out.println(alumno.getNombre()));
-
+                    .forEach(System.out::println);
     }
-
-
 }

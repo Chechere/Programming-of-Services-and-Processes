@@ -27,8 +27,6 @@ public class ConsultasProductos_enunciado {
         consultasFiltradas();
         System.out.println();
         consultasOrdenacion();
-
-
     }
 
     private void todosProductos() {

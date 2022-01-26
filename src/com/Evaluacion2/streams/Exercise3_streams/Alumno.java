@@ -9,9 +9,7 @@ public class Alumno {
     private double nota;
     private int edad;
 
-    public Alumno() {
-
-    }
+    public Alumno() {}
 
     public Alumno(int id, String dni, String nombre, String apellidos, String nombreCurso, double nota, int edad) {
         this.id = id;
@@ -81,6 +79,6 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return id+" | "+dni+" | "+ nombre +" | "+apellidos+" | Curso: "+nombreCurso+" | Nota: "+nota+" | Edad: "+edad;
+        return id + " | " + nombre + " " + apellidos;
     }
 }

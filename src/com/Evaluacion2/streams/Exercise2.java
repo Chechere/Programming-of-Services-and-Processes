@@ -10,26 +10,25 @@ public class Exercise2 {
         people.add(new Person("May", 12));
         people.add(new Person("Tiff", 23));
         people.add(new Person("Azul", 15));
-        people.add(new Person("Samatha", 67));
+        people.add(new Person("Samantha", 67));
 
         //Convert and show all names into uppercase.
-        people  .stream()
-                .map(person -> person.getName()
-                                     .toUpperCase())
-                .forEach(System.out::println);
+        people.stream()
+              .map(person -> person.getName().toUpperCase())
+              .forEach(System.out::println);
         System.out.println();
 
         //Show all names with length less than 4.
-        people  .stream()
-                .filter(person -> person.getName()
-                                        .length() < 4)
-                .forEach(person -> System.out.println(person.getName()));
+        people.stream()
+              .filter(person -> person.getName().length() < 4)
+              .forEach(person -> System.out.println(person.getName()));
         System.out.println();
 
         //Get age of the oldest person.
         int max = people.stream().mapToInt(Person::getAge).max().getAsInt();
         System.out.println("Elder: " + max + "\n");
 
+        //Get the average, min, max age and number of people in the list.
         double avg = people.stream().mapToInt(Person::getAge).average().orElse(-1);
         int min = people.stream().mapToInt(Person::getAge).min().getAsInt();
         int amount = people.size();
