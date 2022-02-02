@@ -2,8 +2,6 @@ package com.Evaluacion2.streams.Exercise3_streams;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class ConsultasAlumnos_enunciado {
     List<Alumno> listaAlumnos = new ArrayList<>();
@@ -39,7 +37,8 @@ public class ConsultasAlumnos_enunciado {
                              .forEach(System.out::println);
 
         System.out.println("\n**** Número de Alumnos ***");
-        long count = listaAlumnos.stream().count(); //En este ejercicio es obligatorio usar .count().
+        //En este ejercicio es obligatorio usar .count(), pero es mejor listaAlumnos.size().
+        long count = listaAlumnos.stream().count();
         System.out.println(count);
 
         System.out.println("\n**** Alumnos con nota mayor a 9 y que sean del curso PHP ***");
@@ -80,8 +79,5 @@ public class ConsultasAlumnos_enunciado {
         listaAlumnos.stream()
                     .filter(alumno -> alumno.getNombre().length() > 10)
                     .forEach(System.out::println);
-
     }
-
-
 }

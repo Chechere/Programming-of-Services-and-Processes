@@ -12,7 +12,7 @@ public class Exercise1 {
         names.forEach(name -> System.out.println("Hello " + name));
         System.out.println();
 
-        //Make capatain to all names
+        //Make captain to all names
         List<String> captains = names.stream().map(name -> "Captain " + name).toList();
         captains.forEach(System.out::println);
         System.out.println();

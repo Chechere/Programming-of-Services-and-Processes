@@ -9,9 +9,7 @@ public class Alumno {
     private double nota;
     private int edad;
 
-    public Alumno() {
-
-    }
+    public Alumno() {}
 
     public Alumno(int id, String dni, String nombre, String apellidos, String nombreCurso, double nota, int edad) {
         this.id = id;
